@@ -8,15 +8,18 @@ import java.util.Arrays;
  */
 
 public class Player extends Person {
-    private String GE_ZERO = "property must be greater than or equal to 0";
-    protected Integer assists;
-    protected Integer goals; // Can be points based on sport
-    protected Integer losses;
-    private String[] ratings = {"Beginner", "Intermediate", "Expert"};
-    protected String skillRating;
     protected String team;
-    protected Integer ties;
+    protected String skillRating;
     protected Integer wins;
+    protected Integer losses;
+    protected Integer ties;
+    protected Integer goals; // Can be points based on sport
+    protected Integer assists;
+    private String[] ratings = {"BEGINNER", "INTERMEDIATE", "EXPERT"};
+
+
+
+
 
 
     /**
@@ -29,7 +32,6 @@ public class Player extends Person {
         middleName = null;
         courtesyTitle = null;
         suffix = null;
-        System.out.println(Gender.MALE);
         setGender(Gender.MALE.toString());
         setAge((byte)0);
         setAssists(0);
@@ -89,6 +91,16 @@ public class Player extends Person {
         setTeam(te);
         setTies(ti);
         setWins(w);
+    }
+
+    public String asString() {
+        String result = "\n";
+        result += this.getCourtesyTitle() + " " +this.getFirstName() + " " + this.getMiddleName() + " " + this.getLastName() + " "
+                + this.getSuffix() + "\n" + "a " + this.getAge() + " year old " + this.getGender() + "\n"
+                + "having " + this.getGoals() + " goals and " + getAssists() + " assists.\n"
+                + "\nTheir career with the " + this.getTeam() + " at a skill rating of " + this.getSkillRating() + " with " +
+                this.getWins() + " wins, " + this.getTies() + " ties, and " + this.losses + " losses.";
+        return result;
     }
 
 
@@ -158,7 +170,7 @@ public class Player extends Person {
         return this.wins;
     }
 
-    public void setAssists(Integer assists) {
+    public void setAssists(int assists) {
         /**
          * @param assists
          * Checks if assists is greater than or equal to 0
@@ -168,11 +180,11 @@ public class Player extends Person {
         if (assists >= 0) {
             this.assists = assists;
         } else {
-            throw new IllegalArgumentException(String.format("Assists %s", GE_ZERO));
+            throw new IllegalArgumentException(String.format("Assists %s", "property must be greater than or equal to 0"));
         }
     }
 
-    public void setGoals(Integer goals) {
+    public void setGoals(int goals) {
         /**
          * @param goals
          * Checks if goals is greater than or equal to 0
@@ -182,12 +194,12 @@ public class Player extends Person {
         if (goals >= 0) {
             this.goals = goals;
         } else {
-            throw new IllegalArgumentException(String.format("Goals %s", GE_ZERO));
+            throw new IllegalArgumentException(String.format("Goals %s", "property must be greater than or equal to 0"));
         }
     }
 
 
-    public void setLosses(Integer losses) {
+    public void setLosses(int losses) {
         /**
          * @param losses
          * Checks if losses is greater than or equal to 0
@@ -197,7 +209,7 @@ public class Player extends Person {
         if (losses >= 0) {
             this.losses = losses;
         } else {
-            throw new IllegalArgumentException(String.format("Losses %s", GE_ZERO));
+            throw new IllegalArgumentException(String.format("Losses %s", "property must be greater than or equal to 0"));
         }
     }
 
@@ -208,6 +220,7 @@ public class Player extends Person {
          * Sets skillRating within the instance
          * @throws IllegalArgumentException if rating doesn't exist in ratings
          */
+        rating = rating.toUpperCase();
         if (contains(rating, this.ratings)) {
             this.skillRating = rating;
         }
@@ -229,7 +242,7 @@ public class Player extends Person {
         }
     }
 
-    public void setTies(Integer ties) {
+    public void setTies(int ties) {
         /**
          * @param ties
          * Checks if ties is greater than or equal to 0
@@ -239,11 +252,11 @@ public class Player extends Person {
         if (ties >= 0) {
             this.ties = ties;
         } else {
-            throw new IllegalArgumentException(String.format("Ties %s", GE_ZERO));
+            throw new IllegalArgumentException(String.format("Ties %s", "property must be greater than or equal to 0"));
         }
     }
 
-    public void setWins(Integer wins) {
+    public void setWins(int wins) {
         /**
          * @param wins
          * Checks if wins is greater than or equal to 0
@@ -253,7 +266,7 @@ public class Player extends Person {
         if (wins >= 0) {
             this.wins = wins;
         } else {
-            throw new IllegalArgumentException(String.format("Wins %s", GE_ZERO));
+            throw new IllegalArgumentException(String.format("Wins %s", "property must be greater than or equal to 0"));
         }
     }
 }

@@ -1,7 +1,7 @@
 public enum SkillRating {
-    BEGINNER("Beginner"),
-    INTERMEDIATE("Intermediate"),
-    EXPERT("Expert");
+    BEGINNER("BEGINNER"),
+    INTERMEDIATE("INTERMEDIATE"),
+    EXPERT("EXPERT");
 
     public String rating;
 

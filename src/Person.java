@@ -157,7 +157,8 @@ public class Person
 	*/
 	public void setCourtesyTitle(String title)
 	{
-		if (title.equals("Mr") || title.equals( "Mrs") || title.equals("Ms") || title.equals("Miss") || title.equals("Dr"))
+		title = title.toUpperCase();
+		if (title.equals("MR") || title.equals( "MRS") || title.equals("MS") || title.equals("MISS") || title.equals("DR"))
 		{
 			courtesyTitle = title;
 		}
@@ -176,7 +177,8 @@ public class Person
 	*/
 	public void setSuffix(String suffix)
 	{
-		if (suffix.equals("Jr") || suffix.equals("II") || suffix.equals("III") || suffix.equals("IV") || suffix.equals("PhD"))
+		suffix = suffix.toUpperCase();
+		if (suffix.equals("JR") || suffix.equals("II") || suffix.equals("III") || suffix.equals("IV") || suffix.equals("PHD"))
 		{
 			this.suffix = suffix;
 		}
@@ -195,6 +197,7 @@ public class Person
 	*/
 	public void setGender(String sex)
 	{
+		sex = sex.toUpperCase();
 		if (sex.equals(Gender.MALE.toString()) || sex.equals(Gender.FEMALE.toString()) || sex.equals(Gender.UNSPECIFIED.toString()))
 		{
 			gender = sex;

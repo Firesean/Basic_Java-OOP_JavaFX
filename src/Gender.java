@@ -1,7 +1,7 @@
 public enum Gender {
-    MALE("male"),
-    FEMALE("female"),
-    UNSPECIFIED("unspecified");
+    MALE("MALE"),
+    FEMALE("FEMALE"),
+    UNSPECIFIED("UNSPECIFIED");
 
     public final String gender;
 
